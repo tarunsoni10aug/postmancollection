@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "d25600e1-c316-4acb-9d92-b8430ffbebd0",
+		"name": "GetTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ebc45291-0ab5-43d4-a2cb-548f8051df26",
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    \r",
+							"    pm.response.to.have.status(202);\r",
+							"    pm.expect(pm.response.code).to.equal(202);\r",
+							"\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getwithId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0b0c6576-1c2a-4aa0-9043-bc1501e08233",
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    \r",
+							"    pm.response.to.have.status(202);\r",
+							"\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/test/1001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,154 @@
+{
+	"id": "0405a1b6-3435-4820-9585-3f123ef2ff9d",
+	"name": "Passing Postman collection",
+	"description": "Makes four requests to HTTPBin (httpbin.org) and tests Newman",
+	"auth": null,
+	"events": [{
+		"listen": "prerequest",
+		"script": {
+			"id": "a818bc91-0488-4f5c-9570-b7aa6547ea25",
+			"type": "text\/javascript",
+			"exec": [""]
+		}
+	}, {
+		"listen": "test",
+		"script": {
+			"id": "790e09fe-0d20-4eb8-a240-146a53c28bc4",
+			"type": "text\/javascript",
+			"exec": [""]
+		}
+	}],
+	"variables": null,
+	"order": ["68bdb7e0-cc07-4788-9949-2a2938d333d1", "70a138e9-8fd2-4a40-a078-dda5c2cf9c99", "a87bb706-051a-43e6-8ffb-33117596ca6d", "a0d161d2-9624-4d8d-9d76-c198ad8b578c"],
+	"folders_order": [],
+	"folders": [],
+	"requests": [{
+		"id": "68bdb7e0-cc07-4788-9949-2a2938d333d1",
+		"name": "GET with URL Params",
+		"url": "http:\/\/httpbin.org\/get?lol=true",
+		"description": "Simple GET request with URL Parameters",
+		"data": [],
+		"dataMode": "params",
+		"headerData": [],
+		"method": "GET",
+		"pathVariableData": [],
+		"queryParams": [{
+			"key": "lol",
+			"value": "true",
+			"equals": true,
+			"description": "",
+			"enabled": true
+		}],
+		"auth": null,
+		"events": [{
+			"listen": "test",
+			"script": {
+				"id": "5ad4c739-175a-4cf7-b422-3e8bf7ecea47",
+				"type": "text\/javascript",
+				"exec": ["pm.test(\"Status code is 200\", function () {", "    pm.response.to.have.status(200);", "});", "", "pm.test(\"Response contains params\", function () {", "    let data = pm.response.json();", "    pm.expect(data.args.lol).to.eql(\"true\");", "});"]
+			}
+		}],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response contains params\", function () {\n    let data = pm.response.json();\n    pm.expect(data.args.lol).to.eql(\"true\");\n});",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "0405a1b6-3435-4820-9585-3f123ef2ff9d",
+		"headers": "",
+		"pathVariables": []
+	}, {
+		"id": "70a138e9-8fd2-4a40-a078-dda5c2cf9c99",
+		"name": "POST with JSON body",
+		"url": "http:\/\/httpbin.org\/post",
+		"description": "",
+		"data": [],
+		"dataMode": "raw",
+		"headerData": [{
+			"key": "Content-Type",
+			"value": "application\/json",
+			"enabled": true
+		}],
+		"method": "POST",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [{
+			"listen": "test",
+			"script": {
+				"id": "e52ef7c3-6084-4d6c-8143-2e059eed48ca",
+				"type": "text\/javascript",
+				"exec": ["pm.test(\"Status code is 200\", function () {", "    pm.response.to.have.status(200);", "});", "", "pm.test(\"Check POST param in response\", function () {", "    let data = pm.response.json();", "    pm.expect(data.json.something).to.eql(\"cool\");", "});"]
+			}
+		}],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Check POST param in response\", function () {\n    let data = pm.response.json();\n    pm.expect(data.json.something).to.eql(\"cool\");\n});",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "0405a1b6-3435-4820-9585-3f123ef2ff9d",
+		"rawModeData": "{\n    \"something\": \"cool\"\n}",
+		"headers": "Content-Type: application\/json\n",
+		"pathVariables": []
+	}, {
+		"id": "a0d161d2-9624-4d8d-9d76-c198ad8b578c",
+		"name": "PUT with form data",
+		"url": "http:\/\/httpbin.org\/put",
+		"description": null,
+		"data": [{
+			"key": "quotient",
+			"value": "223",
+			"type": "text",
+			"enabled": true
+		}],
+		"dataMode": "urlencoded",
+		"headerData": [],
+		"method": "PUT",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [{
+			"listen": "test",
+			"script": {
+				"id": "c171b27f-a4ab-4fe1-9e33-483c5af986ad",
+				"type": "text\/javascript",
+				"exec": ["pm.test(\"Status code is 200\", function () {", "    pm.response.to.have.status(200);", "});", "", "pm.test(\"Test form data\", function () {", "    let data = pm.response.json();", "    pm.expect(data.form.quotient).to.eql(\"223\");", "});"]
+			}
+		}],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Test form data\", function () {\n    let data = pm.response.json();\n    pm.expect(data.form.quotient).to.eql(\"223\");\n});",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "0405a1b6-3435-4820-9585-3f123ef2ff9d",
+		"headers": "",
+		"pathVariables": []
+	}, {
+		"id": "a87bb706-051a-43e6-8ffb-33117596ca6d",
+		"name": "DELETE request",
+		"url": "http:\/\/httpbin.org\/delete",
+		"description": "",
+		"data": [],
+		"dataMode": "params",
+		"headerData": [],
+		"method": "DELETE",
+		"pathVariableData": [],
+		"queryParams": [],
+		"auth": null,
+		"events": [{
+			"listen": "test",
+			"script": {
+				"id": "05ee76bc-33c1-4cbb-b46b-55e32da015da",
+				"type": "text\/javascript",
+				"exec": ["pm.test(\"Status code is 200\", function () {", "    pm.response.to.have.status(200);", "});"]
+			}
+		}],
+		"folder": null,
+		"preRequestScript": null,
+		"tests": "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});",
+		"currentHelper": null,
+		"helperAttributes": null,
+		"collectionId": "0405a1b6-3435-4820-9585-3f123ef2ff9d",
+		"headers": "",
+		"pathVariables": []
+	}]
+}

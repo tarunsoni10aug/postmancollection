@@ -1,0 +1,48 @@
+{
+	"id": "ed109bab-d347-42ff-94af-9f4c14318b64",
+	"name": "GetTest",
+	"timestamp": "2020-02-28T11:44:25.231Z",
+	"collection_id": "d25600e1-c316-4acb-9d92-b8430ffbebd0",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 1,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "e534bf90-6394-476b-b80c-97b16a7a6b4b",
+			"name": "GetRequest",
+			"url": "http://localhost:8080/test",
+			"time": 8,
+			"responseCode": {
+				"code": 202,
+				"name": "Accepted"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"collection": {
+		"requests": [
+			{
+				"id": "e534bf90-6394-476b-b80c-97b16a7a6b4b",
+				"method": "GET"
+			}
+		]
+	}
+}
